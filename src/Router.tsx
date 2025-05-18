@@ -1,5 +1,5 @@
 import {
-  createBrowserRouter,
+  createHashRouter,
   RouterProvider,
 } from "react-router-dom";
 import Home from "./pages/Home";
@@ -9,29 +9,28 @@ import Edit from "./pages/Edit";
 import "./App.css"; // Assuming global styles are defined here
 import { RecordProvider } from "./contexts/record";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Home />,
   },
   {
-    path: "/home",
+    path: "home",
     element: <Home />,
   },
   {
-    path: "/record",
+    path: "record",
     element: <Record />,
   },
   {
-    path: "/calculator",
+    path: "calculator",
     element: <Calculator />,
   },
   {
-    path: "/edit",
+    path: "edit",
     element: <Edit />, // Adjusted path to match navigation logic
   },
 ]);
-
 
 export default function AppRouter() {
   return (

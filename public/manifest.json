@@ -1,0 +1,21 @@
+{
+  "name": "Life In UK",
+  "short_name": "Life In UK",
+  "description": "A test app built with Vite",
+  "start_url": "/vite-test-app/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/vite.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
