@@ -3,8 +3,10 @@
 ## Goal
 - Test and learn how to use React with TypeScript and Vite
 - Create a simple web application that can log all travel record and calcuate if it meets UK ILR/Nationalisation requirement:
-  - No more than 180 days outside the UK in any 12 months
-  - No more than 90 days outside the UK in the last 12 months if applying for BC
+  - No more than 180 days outside the UK in any 12 months (This is counted on a rolling basis)
+  - if applying for BC
+    -  No more than 450 days outside the UK in the 5 years before applying.
+    - No more than 90 days outside the UK in the last 12 months before applying.
   - Travelling days are not counted as outside the UK
 
 ## Product Requirement

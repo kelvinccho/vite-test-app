@@ -1,17 +1,17 @@
 export const tabs = [
   {
     name: 'Home',
-    icon: 'home',
+    icon: 'fa-solid fa-house',
     href: '/home',
   },
   {
     name: 'Record',
-    icon: 'record',
+    icon: 'fa-solid fa-file-pen',
     href: '/record',
   },
   {
     name: 'Calculator',
-    icon: 'calculator',
+    icon: 'fa-solid fa-calculator',
     href: '/calculator',
   },
 ]

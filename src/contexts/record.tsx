@@ -4,10 +4,12 @@ import type { TravelRecord } from '../types';
 
 // Define the context type
 interface RecordContextType {
+  visaStartDate: Date;
   records: TravelRecord[];
   addRecord: (record: TravelRecord) => void;
   updateRecord: (index: number, updatedRecord: TravelRecord) => void;
   deleteRecord: (index: number) => void;
+  updateVisaStartDate: (date: Date) => void;
 }
 
 // Create the context
@@ -16,6 +18,7 @@ const RecordContext = createContext<RecordContextType | undefined>(undefined);
 // Define the provider component
 export const RecordProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [records, setRecords] = useState<TravelRecord[]>([]);
+  const [visaStartDate, setVisaStartDate] = useState<Date>(new Date());
 
   useEffect(() => {
     // Fetch records from localStorage on mount
@@ -23,7 +26,20 @@ export const RecordProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     if (storedRecords) {
       setRecords(storedRecords);
     }
+
+    // Fetch visa start date from localStorage on mount
+    const storedVisaStartDate = getData('visaStartDate') as string;
+    if (storedVisaStartDate) {
+      setVisaStartDate(new Date(storedVisaStartDate));
+    }
   }, []);
+
+
+  const updateVisaStartDate = (date: Date) => {
+    setVisaStartDate(date);
+    storeData('visaStartDate', date.toISOString());
+  };
+
 
   const addRecord = (record: TravelRecord) => {
     const updatedRecords = [...records, record];
@@ -45,7 +61,7 @@ export const RecordProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   };
 
   return (
-    <RecordContext.Provider value={{ records, addRecord, updateRecord, deleteRecord }}>
+    <RecordContext.Provider value={{ visaStartDate, records, addRecord, updateRecord, deleteRecord, updateVisaStartDate }}>
       {children}
     </RecordContext.Provider>
   );
