@@ -1,5 +1,9 @@
+@import "tailwindcss";
+
 @tailwind base;
-@tailwind components;
+@media screen {
+  
+}@tailwind components;
 @tailwind utilities;
 
 :root {

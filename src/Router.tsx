@@ -1,10 +1,14 @@
 import {
   createBrowserRouter,
   RouterProvider,
+  Link,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Record from "./pages/Record";
 import Calculator from "./pages/Calculator";
+import Edit from "./pages/Edit";
+import "./App.css"; // Assuming global styles are defined here
+import { RecordProvider } from "./contexts/record";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +16,7 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-    path: '/home',
+    path: "/home",
     element: <Home />,
   },
   {
@@ -23,8 +27,19 @@ const router = createBrowserRouter([
     path: "/calculator",
     element: <Calculator />,
   },
+  {
+    path: "/edit",
+    element: <Edit />, // Adjusted path to match navigation logic
+  },
 ]);
 
+
 export default function AppRouter() {
-  return <RouterProvider router={router} />;
+  return (
+    <RecordProvider>
+      <div className="app-container">
+        <RouterProvider router={router} />
+      </div>
+    </RecordProvider>
+  );
 }
